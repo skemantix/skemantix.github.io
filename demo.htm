@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TPB CATALOG RAW</title>
+	<script>
+		const endpoint = "https://56a5-104-245-144-4.ngrok.io/get/products";
+		const data = {state: "KY"};
+		fetch(endpoint, {
+				method:'get',
+				headers: { "Content-type": "application/json" }
+			})
+			.then((resp) => resp.json())
+			.then((data) => {
+				console.log(data);
+			})	
+			.catch((err) => { console.log(err); })
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
