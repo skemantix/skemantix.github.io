@@ -4,15 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a static single-page website for skemantix.com, a freelance web development business. It is hosted on GitHub Pages with a custom domain configured via the CNAME file.
+This is a static single-page website for skemantix.com, web systems, commerce and AI integration (Seb Grinham). It is hosted on GitHub Pages with a custom domain configured via the CNAME file.
 
 ## Architecture
 
 - **No build system**: Pure static HTML/CSS with no bundling, transpilation, or package manager
 - **Single page**: `index.html` is the only page
-- **Styling**: `css/style.css` uses vanilla CSS with Lato font from Google Fonts
+- **Styling**: `css/style.css` uses vanilla CSS (colour tokens on `:root`, dark mode via `prefers-color-scheme`) with Lato from Google Fonts
 - **Images**: Stored in `img/` directory
-- **Analytics**: Google Analytics (UA-669094-1) embedded in the HTML
+- **Analytics**: none. The old Universal Analytics tag (UA-669094-1) was removed in the 2026-10 refresh; UA stopped collecting data in July 2023
+- **Email**: the mailto is assembled by a small inline script from `data-u` / `data-d`; the markup holds only "seb at skemantix dot com"
 
 ## Development
 

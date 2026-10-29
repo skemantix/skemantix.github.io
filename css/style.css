@@ -1,105 +1,185 @@
-	body, html {
-	margin: 0; 
-	padding: 0; 
-	width: 100%; 
-	height: 100%;
-	max-width: 750px;
+:root {
+	--bg: #ffffff;
+	--text: #555a60;
+	--strong: #24272b;
+	--muted: #8a9096;
+	--rule: #e4e6e8;
+	--accent: #c0121c;
+	--link: #2f6db3;
+	--measure: 40rem;
 }
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #16171a;
+		--text: #b9bec4;
+		--strong: #f1f2f3;
+		--muted: #80868c;
+		--rule: #2c2f33;
+		--accent: #f0505a;
+		--link: #7fb2ec;
+	}
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
 
 body {
-	background: #FFF; 
-	font-family: 'Lato', sans-serif; 
-	color: #666; 
-	font-size: 14px; 
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: 'Lato', system-ui, -apple-system, 'Segoe UI', sans-serif;
 	font-weight: 300;
+	font-size: 1.0625rem;
+	line-height: 1.6;
 }
 
-#wrapper {
-	box-sizing: border-box;
-	min-height: 100%;
-	position: relative;
-	padding-top: 1.5em;
-}
-header {
-	position: fixed;
-	left: 0;
-	top: 0;
-	z-index: 200;
-	width: 100%;
-	height: 20%;
-	background: white;
-	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
-}
-header p {
-	margin: 5.5em 0 0 0;
-	padding-left: 2em;
-	font-size: 16px;
-	font-weight: 400;
-	letter-spacing: 3px;
-	white-space: nowrap;
-	text-shadow: 0 0 5px #FFF;
-}
-footer {
+a { color: var(--link); text-decoration: none; font-weight: 400; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 2px; }
+
+strong { color: var(--strong); font-weight: 700; }
+
+.skip {
 	position: absolute;
-	width: 100%;
-	height: 0px;
-	bottom: 0;
-	left: 0;
-}	
-	
-.container {
-	width: 60%; 
-	min-width: 410px;
-	height: 50%; 
-	position: absolute; 
-	top: 20%; 
-	left: 20%; 
-	padding: 1em; 
+	left: 1rem;
+	top: -3rem;
+	padding: .5rem .75rem;
+	background: var(--strong);
+	color: var(--bg);
+	z-index: 10;
+}
+.skip:focus { top: 1rem; }
+
+/* Masthead */
+
+.masthead {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	max-width: calc(var(--measure) + 2rem);
+	margin: 0 auto;
+	padding: 2.5rem 1rem 0;
 }
 
-.topleft {
-	position: relative; 
-	margin-top: -100px;
-	margin-left: -85px; 
-	float: left;
+.logo { width: 72px; height: auto; flex: none; }
+
+.wordmark p { margin: 0; }
+
+.name {
+	color: var(--strong);
+	font-size: 2rem;
+	font-weight: 300;
+	letter-spacing: 5px;
+	line-height: 1.1;
 }
 
-.topright {
-	position: absolute; 
-	top: 0; 
-	right: 1em; 
-	padding: 1em; 
-	font-size: 14px; 
+.strap {
+	font-size: .8125rem;
 	font-weight: 400;
-	z-index: 220;
+	letter-spacing: 2px;
+	text-transform: lowercase;
+	color: var(--muted);
 }
 
-.bottomright {
-	position: fixed; 
-	bottom: 0; 
-	right: 0; 
-	height: 60%; 
-	z-index: 100;
+.since {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	margin: 0;
+	font-size: .8125rem;
+	font-weight: 400;
+	color: var(--muted);
 }
 
-h1 {font-size: 3em; z-index: 5; color: #333; margin: 1em 0 0 3em; letter-spacing: 5px; position: absolute; text-shadow: 0 0 5px #FFF;} 
-h2 {border-bottom: 1px dotted #DDD; font-weight: 400; color: #333; text-transform: uppercase; font-size: 12px; padding-bottom: 0.5em;}
-ul {padding-left: 0; margin-bottom: 2em;}
-ul:after {content:''; display: block; clear: both;}
-ul li {font-weight: 300; color: #c0121c; margin-bottom: 1em; margin-left: 5%; float: left; width: 40%; transition: 0.3s;}
-ul li a {text-decoration: none; color: #666;}
-ul li a:hover {color: #000;}
-p.linkedin {margin: 2em 0;}
+/* Content */
 
-a.m {text-decoration: none; color: #3176be; font-weight: 400;}
-
-@media only screen and (max-width: 480px) {
-	ul li {width: 90% !important;}
-	
+main {
+	max-width: calc(var(--measure) + 2rem);
+	margin: 0 auto;
+	padding: 0 1rem;
 }
+
+section { margin-top: 3rem; }
+
+.intro { margin-top: 3.5rem; }
+
+h1 {
+	margin: 0 0 1rem;
+	color: var(--strong);
+	font-size: clamp(1.6rem, 4.5vw, 2.25rem);
+	font-weight: 300;
+	line-height: 1.25;
+	letter-spacing: -.01em;
+}
+
+.intro p { margin: 0; font-size: 1.125rem; }
+
+h2 {
+	margin: 0 0 1.25rem;
+	padding-bottom: .5rem;
+	border-bottom: 1px dotted var(--rule);
+	color: var(--strong);
+	font-size: .75rem;
+	font-weight: 700;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+/* What I work on */
+
+.services { margin: 0; display: grid; gap: 1.5rem; }
+@media (min-width: 640px) { .services { grid-template-columns: 1fr 1fr; gap: 1.75rem 2rem; } }
+
+dt { color: var(--strong); font-weight: 700; }
+dt::before { content: ''; display: inline-block; width: .5rem; height: .5rem; margin-right: .5rem; border-radius: 50%; background: var(--accent); vertical-align: .1em; }
+dd { margin: .25rem 0 0; }
+
+/* Principles */
+
+.principles { list-style: none; margin: 0; padding: 0; }
+.principles li { margin-bottom: .9rem; }
+
+/* Selected work */
+
+.work { list-style: none; margin: 0; padding: 0; }
+.work li { padding: .75rem 0; border-bottom: 1px solid var(--rule); }
+.work li:first-child { padding-top: 0; }
+.work span { display: block; margin-top: .15rem; font-size: .9375rem; }
+
+.toolkit {
+	margin: 1.5rem 0 0;
+	font-size: .8125rem;
+	font-weight: 400;
+	letter-spacing: .5px;
+	color: var(--muted);
+}
+
+/* Contact */
+
+.contact p { margin: 0 0 .5rem; }
+.contact ul { list-style: none; margin: 0; padding: 0; }
+.contact li { margin-bottom: .25rem; }
+
+footer {
+	max-width: calc(var(--measure) + 2rem);
+	margin: 4rem auto 0;
+	padding: 1.5rem 1rem 3rem;
+	font-size: .8125rem;
+	color: var(--muted);
+}
+footer p { margin: 0; }
+
+/* The grumpy kid has been on the page since 2006. He only shows where there's room for him. */
+.grump {
+	display: none;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	height: min(55vh, 568px);
+	width: auto;
+	pointer-events: none;
+}
+@media (min-width: 1100px) and (min-height: 600px) { .grump { display: block; } }

@@ -1,0 +1,8 @@
+{
+  // BYO-repo rehost onto Cloudflare Workers Static Assets (Be model, spec 0007/0008).
+  // Plain static site — no build step; serve the repo root as-is.
+  // GitHub Pages ignores this file, so the existing deploy keeps working until you cut over.
+  "name": "skemantix",
+  "compatibility_date": "2026-06-06",
+  "assets": { "directory": "." }
+}

@@ -1,0 +1,8 @@
+# Repo-internal files that must NOT be served publicly (Be deploy pattern, 0007).
+# _headers is NOT listed: Cloudflare parses it for response headers and never serves it.
+.git
+.DS_Store
+CLAUDE.md
+README.md
+.gitignore
+CNAME
