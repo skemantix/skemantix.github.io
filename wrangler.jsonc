@@ -1,8 +1,12 @@
 {
-  // BYO-repo rehost onto Cloudflare Workers Static Assets (Be model, spec 0007/0008).
-  // Plain static site — no build step; serve the repo root as-is.
-  // GitHub Pages ignores this file, so the existing deploy keeps working until you cut over.
+  // Cloudflare Workers Static Assets (Be model, spec 0007/0008).
+  // Plain static site, no build step: the repo root is served as-is, minus .assetsignore.
+  // Live since 2026-10-29 (moved from GitHub Pages). Deploy: npx wrangler deploy
   "name": "skemantix",
   "compatibility_date": "2026-06-06",
-  "assets": { "directory": "." }
+  "assets": { "directory": "." },
+  "routes": [
+    { "pattern": "skemantix.com", "custom_domain": true },
+    { "pattern": "www.skemantix.com", "custom_domain": true }
+  ]
 }
